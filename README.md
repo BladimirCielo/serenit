@@ -31,22 +31,22 @@ Plataforma web enfocada a promover la salud mental de los estudiantes universita
 
 ## Comandos Git
 1. Asegúrate de que te encuentras en tu rama designada, puedes usar el comando siguiente para verificarlo:
-git branch
+<br>git branch
 
 2. Si te encuentras en una rama que no es la tuya, ingresa el comando:
-git checkout <rama-designada>
+<br>git checkout <rama-designada>
 
 3. Agregar archivos modificados o creados:
-git add .
+<br>git add .
 
 4. Hacer commit para indicar los cambios realizados:
-git commit -m "Escribe-aquí-qué-cambios-hiciste"
+<br>git commit -m "Escribe-aquí-qué-cambios-hiciste"
 
 5. Subir a GitHub para que se actualice:
-git push origin <rama-designada>
+<br>git push origin <rama-designada>
 
 Ejemplo:
-git checkout belen
-git add .
-git commit -m "Cambios por Belén en X parte del proyecto"
-git push origin belen
+<br>git checkout belen
+<br>git add .
+<br>git commit -m "Cambios por Belén en X parte del proyecto"
+<br>git push origin belen
