@@ -29,6 +29,11 @@ Plataforma web enfocada a promover la salud mental de los estudiantes universita
 <br>git clone https://github.com/BladimirCielo/serenit.git
 <br>git checkout rama-desginada
 
+## Abrir el proyecto
+En tu navegador ingresa la siguiente dirección:<br>
+http://localhost/serenit/public/login
+
+
 ## Comandos Git
 1. Asegúrate de que te encuentras en tu rama designada, puedes usar el comando siguiente para verificarlo:
 <br>git branch
