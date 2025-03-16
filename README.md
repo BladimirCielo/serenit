@@ -10,21 +10,22 @@ Plataforma web enfocada a promover la salud mental de los estudiantes universita
 - Composer 2.7.0
 - Laravel 12.2.0
 - MySQL
+- Xampp
 
 ## Autores
 
-- Jose Bladimir Cielo Cuautle
+- José Bladimir Cielo Cuautle
 - Noé Hernández Díaz
 - Belén Flores Pano
 
 ## Cómo descargar
 
-1. Dirígiete a la ubicación htdocs donde descargarás el repositorio
+1. Dirígete a la ubicación htdocs donde descargarás el repositorio
 
 2. Abre la terminal de comandos desde esta ubicación
 
 3. Ingresa los siguientes comandos (cambia el nombre <rama-designada> por el nombre del desarrollador del equipo):
-git init
+<b>git init
 git clone https://github.com/BladimirCielo/serenit.git
 git checkout <rama-desginada>
 
