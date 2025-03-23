@@ -1,0 +1,13 @@
+.info {
+    background:none;
+    max-width: 752px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alinea todo el contenido verticalmente al centro */
+    align-items: center; /* Alinea todo el contenido horizontalmente al centro */
+    padding: 0 50px;
+    border-radius: 15px;
+}
+
+#animo { background-color: rgb(223, 229, 255); }

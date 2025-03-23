@@ -10,4 +10,12 @@ class logincontroller extends Controller {
         return view ('login');
     }
     
+    public function inicio()
+    {
+        return view ('index');
+    }
+    public function animo()
+    {
+        return view ('estadoanimo');
+    }
 }
