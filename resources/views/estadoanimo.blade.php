@@ -1,6 +1,6 @@
 @extends('sidebar')
 
-@section('title', 'Inicio')
+@section('title', 'Estado de ánimo')
 
 @section('estilos_adicionales')
     <link href="{{ asset('css/estadoanimo.css') }}" rel="stylesheet">
