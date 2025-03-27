@@ -1,9 +1,10 @@
 :root {
-    --color-bk-card: #eef2ff;
+    --color-bk-card: #f4f6ff;
     --color-bk-card-hover: #dce0ff;
 
     --color-txt-gray: #737887;
 
+    --color-bk-icon-card: #eaedff;
     --color-bk-button: blue;
 }
 
@@ -46,12 +47,24 @@ h2, h3 {
     background: var(--color-bk-card);
     text-align: center;
     align-content: center;
+    justify-items: center;
     color: var(--color-txt-gray);
     cursor: pointer;
     transition: 0.3s;
 }
 .mood-card:hover {
     background: var(--color-bk-card-hover);
+}
+.icon-card-cont {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center; 
+    background: var(--color-bk-icon-card);
+    border-radius: 50%;
 }
 .note-section textarea {
     width: 100%;
@@ -78,7 +91,6 @@ h2, h3 {
 }
 .analysis-card span {
     font-size: 24px;
-    margin-right: 10px;
 }
 .analysis-card p {
     color: var(--color-txt-gray);
@@ -106,12 +118,12 @@ h2, h3 {
     color: #333;
 }
 .recommendations ul {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     list-style: none;
     padding: 0;
 }
 .recommendations li {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     display: flex;
     align-items: center; /* Alinea los elementos verticalmente */
     gap: 10px; /* Espaciado entre el icono y la información */
@@ -123,7 +135,7 @@ h2, h3 {
     /* background: var(--color-bk-card-hover); */
 }
 .recommendations .icon-cont {
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 50px;
     height: 50px;
     display: flex;
@@ -139,7 +151,7 @@ h2, h3 {
     border-radius: 10px;
 }
 .recommendations .info-cont {
-    border: 1px solid rgb(246, 255, 0);
+    /* border: 1px solid rgb(246, 255, 0); */
     width: 350px;
 }
 .recommendations .info-cont p {

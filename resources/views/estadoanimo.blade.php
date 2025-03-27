@@ -13,22 +13,30 @@
             <h2>¿Cómo te sientes hoy?</h2>
             <div class="mood-options">
                 <div class="mood-card genial">
-                    <span>😊</span>
+                    <div class="icon-card-cont">
+                        <span>😊</span>
+                    </div>
                     <h3>Genial</h3>
                     <p>Sentimiento positivo y enérgico</p>
                 </div>
                 <div class="mood-card bien">
-                    <span>🙂</span>
+                    <div class="icon-card-cont">
+                        <span>🙂</span>
+                    </div>
                     <h3>Bien</h3>
                     <p>En general me siento bien</p>
                 </div>
-                <div class="mood-card neutral">
-                    <span>😐</span>
+                    <div class="mood-card neutral">
+                <div class="icon-card-cont">
+                        <span>😐</span>
+                    </div>
                     <h3>Neutral</h3>
                     <p>Ni bien ni mal</p>
                 </div>
                 <div class="mood-card decaido">
-                    <span>😞</span>
+                    <div class="icon-card-cont">
+                        <span>😞</span>
+                    </div>
                     <h3>Decaído</h3>
                     <p>Sintiéndome mal el día de hoy</p>
                 </div>
@@ -44,7 +52,9 @@
         <div class="subcont analysis-section">
             <h3>Tendencias semanales del ánimo</h3>
             <div class="analysis-card">
-                <span>📈</span>
+                <div class="icon-card-cont">
+                        <span>📈</span>
+                    </div>
                 <div>
                     <h4>Análisis del ánimo</h4>
                     <p>Tu estado de ánimo ha mejorado durante la última semana</p>
