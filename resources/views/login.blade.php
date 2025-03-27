@@ -1,59 +1,99 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-  
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-    <link href="{{ asset('css/login/fonts.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/login/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/login/bootstrap.min.css') }}" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="{{ asset('css/login/login.css') }}" rel="stylesheet">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js">  </script>
-
+    
     <title>Inicio de sesión | SerenIT</title>
-  </head>
-  <body>
-  
 
-    <div class="d-md-flex half">
-      <div class="bg" style="background-image: url('/serenit/public/archivos/login.jpg');"></div>
-      <div class="contents">
+    <!-- Icono de la pestaña -->
+    <link rel="icon" href="{!! asset ('archivos/favicon.ico') !!}" type="image/x-icon">
 
-        <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-12">
-              <div class="form-block mx-auto">
-                <div class="text-center mb-5">
-                <h3>Iniciar sesión</h3>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+         <!-- SECCIÓN: CREAR CUENTA -->
+        <div class="form-container sign-up">
+            <form>
+                <h1>Crear Cuenta</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
-                <form >
-                  <div class="form-group first">
-                    <label for="username">Usuario</label>
-                    <input type="text" class="form-control" placeholder="Ingresa tu usuario" name = 'nombre_usuario'>
-                  </div>
-                  <div class="form-group last mb-3">
-                    <label for="password">Contraseña</label>
-                    <input type="text" class="form-control" placeholder="Ingresa tu contraseña"name = 'contrasena'>
-                  </div>
-                  
-                  
-                  <input type="submit" value="Ingresar" class="btn btn-block btn-primary boton">
-                  
-                </form>
-              </div>
-            </div>
-          </div>
+                <input type="text" placeholder="Nombre">
+                <input type="text" placeholder="Apellidos">
+                <input type="email" placeholder="Correo electrónico">
+                <input type="password" placeholder="Contraseña">
+                <input type="password" placeholder="Confirmar contraseña">
+                <label for="Carrera">Carrera</label>
+                <select name="" id="">Carrea
+                    <option value="Biologia">Biotecnología</option>
+                    <option value="Biologia">Electrónica</option>
+                    <option value="Biologia">Financiera</option>
+                    <option value="Biologia">Industrial</option>
+                    <option value="Biologia">Mecatrónica</option>
+                    <option value="Biologia">Sistemas Automotrices</option>
+                    <option value="Biologia">Tecnologías de la Información</option>
+                </select>
+                <button>Crear Cuenta</button>
+            </form>
         </div>
-      </div>
-
-      
+         <!-- SECCIÓN: INICIAR SESIÓN -->
+        <div class="form-container sign-in">
+            <form>
+                <h1>Iniciar Sesión</h1>
+                <!-- <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div> -->
+                <span>Ingresa tus datos para iniciar sesión</span>
+                <input type="email" placeholder="Correo electrónico">
+                <input type="password" placeholder="Contraseña">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <button>Ingresar</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <img src="{!! asset('archivos/logo-sidebar.png') !!}" id="logo-login" alt="logo-login"></img>
+                    <p>Regístrate ingresando tus datos para poder acceder a la plataforma</p>
+                    <button class="hidden" id="login">¿Ya tienes una cuenta?</button>
+                  </div>
+                  <div class="toggle-panel toggle-right">
+                    <img src="{!! asset('archivos/logo-sidebar.png') !!}" id="logo-login" alt="logo-login"></img>
+                    <p> Plataforma digital enfocada a promover la salud mental de los estudiantes
+universitarios, facilitando recursos que contribuyan a su bienestar emocional y al equilibrio
+entre lo académico y lo personal.</p>
+                    <button class="hidden" id="register">¿No tienes cuenta?</button>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    
 
+    <script src="script.js"></script>
+    <script>
+      const container = document.getElementById('container');
+      const registerBtn = document.getElementById('register');
+      const loginBtn = document.getElementById('login');
+
+      registerBtn.addEventListener('click', () => {
+          container.classList.add("active");
+      });
+
+      loginBtn.addEventListener('click', () => {
+          container.classList.remove("active");
+      });
+    </script>
 </body>
+
 </html>
