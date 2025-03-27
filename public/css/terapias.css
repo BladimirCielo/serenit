@@ -1,0 +1,167 @@
+/* Estilos para la vista de terapias */
+.terapias-container {
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.titulo-principal {
+    color: #4a6baf;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.user-info {
+    font-weight: bold;
+    color: #333;
+}
+
+.breadcrumb {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.seccion {
+    margin-bottom: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.seccion-titulo {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.especialista-card {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.especialista-info {
+    flex-grow: 1;
+}
+
+.especialista-nombre {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.especialista-especialidad {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.disponibilidad {
+    color: #2ecc71;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn-programar {
+    background: #4a6baf;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-programar:hover {
+    background: #3a5a9f;
+}
+
+.tabla-sesiones {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-sesiones th, .tabla-sesiones td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.tabla-sesiones th {
+    background: #f8f9fa;
+    color: #555;
+    font-weight: 600;
+}
+
+.badge-completado {
+    background: #d4edda;
+    color: #155724;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.emergencia-card {
+    background: #fff8e1;
+    border-left: 4px solid #ffc107;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.emergencia-titulo {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.btn-emergencia {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-emergencia:hover {
+    background: #c82333;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .especialista-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .btn-programar {
+        align-self: flex-end;
+    }
+    
+    .tabla-sesiones {
+        display: block;
+        overflow-x: auto;
+    }
+}
