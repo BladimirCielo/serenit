@@ -21,12 +21,6 @@
         <div class="form-container sign-up">
             <form>
                 <h1>Crear Cuenta</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
                 <input type="text" placeholder="Nombre">
                 <input type="text" placeholder="Apellidos">
                 <input type="email" placeholder="Correo electrónico">
@@ -47,7 +41,8 @@
         </div>
          <!-- SECCIÓN: INICIAR SESIÓN -->
         <div class="form-container sign-in">
-            <form>
+            <form action =  "{{route('validar')}}" method= "POST">
+            {{ csrf_field() }}
                 <h1>Iniciar Sesión</h1>
                 <!-- <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -56,10 +51,24 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div> -->
                 <span>Ingresa tus datos para iniciar sesión</span>
-                <input type="email" placeholder="Correo electrónico">
-                <input type="password" placeholder="Contraseña">
+                <input type="email" name="email" placeholder="Correo electrónico">
+                @if($errors->first('email'))
+                    <p class="text-warning">{{ $errors->first('email') }}</p>
+                @endif
+                <input type="password" name="contrasenia" placeholder="Contraseña">
+                @if($errors->first('contrasenia'))
+                <p class="text-warning">{{ $errors->first('contrasenia') }}</p>
+                @endif
                 <a href="#">¿Olvidaste tu contraseña?</a>
-                <button>Ingresar</button>
+                <input type="submit" value="Ingresar" class="">
+                <div class="d-sm-flex mb-5 align-items-center">
+                    @if (Session::has('mensaje'))    
+                      <div class="alert alert-dismissible alert-warning">
+                          <h6 class="alert-heading">AVISO</h6>
+                          <p class="mb-0">{{ Session::get('mensaje') }}</p>
+                      </div>
+                    @endif
+                </div>
             </form>
         </div>
         <div class="toggle-container">
@@ -72,8 +81,8 @@
                   <div class="toggle-panel toggle-right">
                     <img src="{!! asset('archivos/logo-sidebar.png') !!}" id="logo-login" alt="logo-login"></img>
                     <p> Plataforma digital enfocada a promover la salud mental de los estudiantes
-universitarios, facilitando recursos que contribuyan a su bienestar emocional y al equilibrio
-entre lo académico y lo personal.</p>
+                        universitarios, facilitando recursos que contribuyan a su bienestar emocional y al equilibrio
+                        entre lo académico y lo personal.</p>
                     <button class="hidden" id="register">¿No tienes cuenta?</button>
                 </div>
             </div>

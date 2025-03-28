@@ -42,10 +42,12 @@
             <div class="usuario" id="img-user">
                 <img src="{!! asset('archivos/usuario.png') !!}" alt="">
                 <div class="info-usuario">
-                    <div class="nombre-usuario">
-                        <span class="mensaje">Bienvenido</span>
-                        <span class="nombre">Nombre</span>
-                    </div>
+                    @if (Session::has('sesionname'))
+                        <div class="nombre-usuario">
+                            <span class="mensaje">Bienvenido</span>
+                            <span class="nombre">{{ Session::get('sesionname')}}</span>
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="linea"></div>
@@ -126,7 +128,7 @@
             <div class="logout">
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('cerrarsesion') }}">
                             <svg class="iconos-nav" version="1.0" xmlns="http://www.w3.org/2000/svg"  width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000"  preserveAspectRatio="xMidYMid meet"> <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" stroke="none">
                                 <path d="M285 5101 c-108 -39 -199 -121 -251 -226 l-29 -60 0 -2040 0 -2040 32 -65 c18 -36 46 -81 62 -101 70 -84 101 -97 829 -340 l687 -230 105 3 c96 3 112 6 173 36 81 40 156 111 191 180 43 84 56 154 56 294 l0 128 394 0 c394 0 395 0 475 25 196 62 353 236 396 440 12 56 15 172 15 590 0 520 0 521 -22 565
                                 -32 61 -66 83 -135 88 -49 3 -64 0 -93 -20 -19 -13 -45 -39 -57 -57 l-23 -34 0 -517 c0 -581 0 -583 -70 -662 -23 -26 -61 -55 -92 -69 -52 -24 -58 -24 -420 -27 l-368 -3 0 1669 c0 1086 -4 1688 -10 1723 -20 105 -90 211 -181 275 -24 17 -130 59 -253 101 l-211 72 695 -2 695 -2 53 -24 c31 -14 69 -43 92 -69 70 -79 70 -81 70 -662 l0 -517 23 -34 c12 -18 38 -44 57 -57 29 -20 44 -23 93 -20 69 5 103 27 135 88 22 44 22 45 22 565 0 418 -3 534 -15 590 -43 204 -200 378 -396 440 l-80 25 -1297 0 c-1226 -1 -1300 -2 -1347 -19z m810 -524 c352 -118 650 -219 663 -226 55 -30 52 95 52 -2000 0 -1178 -4 -1939 -9 -1954 -16

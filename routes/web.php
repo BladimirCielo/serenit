@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\logincontroller;
 
 Route::get('login',[logincontroller::class,'login'])->name('login');
+Route::POST('validar',[logincontroller::class,'validar'])->name('validar');
+Route::get('cerrarsesion',[logincontroller::class,'cerrarsesion'])->name('cerrarsesion');
 
 Route::get('inicio',[logincontroller::class,'inicio'])->name('inicio');
 Route::get('animo',[logincontroller::class,'animo'])->name('animo');
