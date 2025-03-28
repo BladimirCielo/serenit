@@ -1,6 +1,6 @@
 @extends('sidebar')
 
-@section('title', 'Calendario')
+@section('title', 'Organizador')
 
 @section('estilos_adicionales')
     <link href="{{ asset('css/estadoanimo.css') }}" rel="stylesheet">

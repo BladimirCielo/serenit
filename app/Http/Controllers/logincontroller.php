@@ -24,7 +24,7 @@ class logincontroller extends Controller {
         return view ('calendarios.organizador');
     }
 
-    public function calendario()
+    public function calendar()
     {
         return view ('calendario');
     }
