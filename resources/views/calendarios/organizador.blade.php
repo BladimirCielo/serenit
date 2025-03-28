@@ -17,7 +17,8 @@
     <div class="flex space-x-4 mb-6">
             <button class="px-4 py-2 bg-gray-200 rounded">Vista General</button>
             <button class="px-4 py-2 bg-gray-200 rounded">Lista de Tareas</button>
-            <button class="px-4 py-2 bg-gray-200 rounded">Calendario</button>
+            <a href="{{ route('calendar') }}" class="px-4 py-2 bg-gray-200 rounded">Calendario</a>
+
         </div>
 
 

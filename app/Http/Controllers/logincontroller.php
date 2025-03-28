@@ -14,17 +14,20 @@ class logincontroller extends Controller {
     {
         return view ('index');
     }
-    public function animo()
+    public function mood()
     {
         return view ('estadoanimo');
     }
 
-    public function calendario()
+    public function organizador()
     {
-        return view ('calendario.organizador');
+        return view ('calendarios.organizador');
     }
 
-    
+    public function calendario()
+    {
+        return view ('calendario');
+    }
 
 
 }

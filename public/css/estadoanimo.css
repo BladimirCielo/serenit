@@ -1,3 +1,13 @@
+:root {
+    --color-bk-card: #f4f6ff;
+    --color-bk-card-hover: #dce0ff;
+
+    --color-txt-gray: #737887;
+
+    --color-bk-icon-card: #eaedff;
+    --color-bk-button: blue;
+}
+
 .info {
     background:none;
     max-width: 752px;
@@ -11,3 +21,139 @@
 }
 
 #animo { background-color: rgb(223, 229, 255); }
+
+.container {
+    margin: auto;
+    padding: 20px;
+    max-width: 900px;
+}
+h2, h3 {
+    margin: 10px 0;
+    color: #0f1419;
+}
+.subcont {
+    margin: 30px 0;
+}
+.mood-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+.mood-card {
+    flex: 1;
+    padding: 15px;
+    height: 250px;
+    border-radius: 20px;
+    background: var(--color-bk-card);
+    text-align: center;
+    align-content: center;
+    justify-items: center;
+    color: var(--color-txt-gray);
+    cursor: pointer;
+    transition: 0.3s;
+}
+.mood-card:hover {
+    background: var(--color-bk-card-hover);
+}
+.icon-card-cont {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center; 
+    background: var(--color-bk-icon-card);
+    border-radius: 50%;
+}
+.note-section textarea {
+    width: 100%;
+    height: 150px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    font-size: 15px;
+    resize: none;
+}
+.analysis-card {
+    display: flex;
+    margin-top: 10px;
+    padding: 15px;
+    height: 200px;
+    background-color: var(--color-bk-card);
+    border-radius: 20px;
+    align-items: center;
+}
+.analysis-card h4 {
+    font-size: 20px;
+}
+.analysis-card span {
+    font-size: 24px;
+}
+.analysis-card p {
+    color: var(--color-txt-gray);
+}
+.analysis-card h4,
+.analysis-card p {
+    margin-top: 10px;
+}
+.analysis-card button {
+    border: none;
+    margin: 10px 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.analysis-card .main-button {
+    background: var(--color-bk-button);
+    color: white;
+}
+.analysis-card .second-button {
+    background: #e6ebff;
+    color: blue;
+}
+.recommendations {
+    color: #333;
+}
+.recommendations ul {
+    /* border: 1px solid red; */
+    list-style: none;
+    padding: 0;
+}
+.recommendations li {
+    /* border: 1px solid blue; */
+    display: flex;
+    align-items: center; /* Alinea los elementos verticalmente */
+    gap: 10px; /* Espaciado entre el icono y la información */
+    margin: 15px 0;
+    padding: 5px 5px 5px 0;
+    cursor: pointer;
+}
+.recommendations li:hover {
+    /* background: var(--color-bk-card-hover); */
+}
+.recommendations .icon-cont {
+    /* border: 1px solid green; */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center; /* Alinea todo el contenido verticalmente al centro */
+    align-items: center;
+    margin: 5px 0;
+    padding: 10px;
+    background: #eef2ff;
+    /* border-radius: 10px;     */
+}
+.recommendations li, 
+.recommendations .icon-cont {
+    border-radius: 10px;
+}
+.recommendations .info-cont {
+    /* border: 1px solid rgb(246, 255, 0); */
+    width: 350px;
+}
+.recommendations .info-cont p {
+    color: var(--color-txt-gray);
+}
