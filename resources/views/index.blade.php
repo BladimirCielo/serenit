@@ -4,6 +4,9 @@
 
 @section('estilos_adicionales')
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+    <style>
+        #inicio { background-color: rgb(223, 229, 255); }
+    </style>
 @endsection
 
 @section('contenido')

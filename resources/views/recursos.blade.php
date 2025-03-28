@@ -4,6 +4,9 @@
 
 @section('estilos_adicionales')
     <link href="{{ asset('css/recursos.css') }}" rel="stylesheet">
+    <style>
+        #recursos { background-color: rgb(223, 229, 255); }
+    </style>
 @endsection
 
 @section('contenido')

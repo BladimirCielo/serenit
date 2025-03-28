@@ -3,7 +3,7 @@
 @section('title', 'Organizador')
 
 @section('estilos_adicionales')
-    <link href="{{ asset('css/calendario.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/organizacion.css') }}" rel="stylesheet">
     <style>
         #organizador { background-color: rgb(223, 229, 255); }
 

@@ -6,8 +6,6 @@ body {
     height: 100vh;
 }
 
-#calendario { background-color: rgb(223, 229, 255); }
-
 .calendar-container {
     height: 90vh;
     padding-top: 20px;

@@ -3,6 +3,8 @@
     padding: 20px;
 }
 
+#inicio { background-color: rgb(223, 229, 255); }
+
 /* Breadcrumb */
 .breadcrumb {
     font-size: 14px;

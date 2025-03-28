@@ -33,7 +33,7 @@
                 <textarea name="nota" placeholder="Escribe aquí"></textarea>
             </div>
 
-            <button type="submit" class="main-button">Guardar Estado de Ánimo</button>
+            <button type="submit" class="main-button">Guardar estado de ánimo</button>
         </form>
 
         <div class="subcont analysis-section">

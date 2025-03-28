@@ -5,6 +5,8 @@
 @section('estilos_adicionales')
 <link href="{{ asset('css/terapias.css') }}" rel="stylesheet">
 <style>
+    #terapia { background-color: rgb(223, 229, 255); }
+
     .terapias-container {
         padding: 2rem;
         max-width: 1200px;

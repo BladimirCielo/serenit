@@ -104,14 +104,14 @@ h2, h3 {
 .analysis-card p {
     margin-top: 10px;
 }
-.analysis-card button {
+button {
     border: none;
     margin: 10px 10px;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
 }
-.analysis-card .main-button {
+.main-button {
     background: var(--color-bk-button);
     color: white;
 }
