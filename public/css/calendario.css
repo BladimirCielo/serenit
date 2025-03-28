@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#calendario { background-color: rgb(223, 229, 255); }
+
+.calendar-container {
+    height: 90vh;
+    padding-top: 20px;
+    margin: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.btn {
+    background-color: #dfe4fd;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.btn.active {
+    background-color: #4a6ee0;
+    color: white;
+}
+.controls {
+    border: 1px solid blue;
+}
+.calendar-header {
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.calendar {
+    width: 100%;
+    border-collapse: collapse;
+}
+.calendar th, .calendar td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+.upcoming-tasks {
+    margin-top: 20px;
+}
+.task-list {
+    display: flex;
+    gap: 10px;
+}
+.task {
+    background: #eef2ff;
+    padding: 15px;
+    border-radius: 10px;
+    flex: 1;
+    text-align: center;
+}
+.task h4 {
+    margin-bottom: 5px;
+}

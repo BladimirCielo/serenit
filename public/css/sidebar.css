@@ -84,14 +84,14 @@ body {
     width: 80px;
 }
 .barra-lateral .nombre-pagina img {
-    min-width: 50px;
+    min-width: 60px;
+    min-height: 60px;
     margin-right: 10px;
-    cursor: pointer; /* muestra el cursor al pasarle encima, como un botón */
+    cursor: pointer;
 }
 .barra-lateral .nombre-pagina span {
     min-width: 50px;
-    margin-right: 10px;
-    cursor: pointer; /* muestra el cursor al pasarle encima, como un botón */
+    cursor: pointer;
 }
 .barra-lateral span {
     /*border: 2px solid blue;*/
@@ -109,7 +109,6 @@ body {
 
 /* NOMBRE DE LA PÁGINA */
 .barra-lateral .nombre-pagina {
-    /*border: 2px solid red;*/
     width: 100%;
     margin-bottom: 40px;
     height: 45px;
@@ -118,7 +117,7 @@ body {
     align-items: center;
 }
 .barra-lateral .nombre-pagina ion-icon {
-    /*border: 2px solid slateblue;*/
+    /* border: 2px solid slateblue; */
     min-width: 50px;
     font-size: 40px;
     cursor: pointer; /* muestra el cursor al pasarle encima, como un botón */
@@ -217,9 +216,9 @@ font-size: 25px;
     
 }
 .barra-lateral .usuario img {
-    width: 50px;
-    height: 50px;
-    min-width: 50px;
+    width: 4px;
+    height: 40px;
+    min-width: 40px;
     border-radius: 10px;
 }
 .barra-lateral .usuario .info-usuario {
