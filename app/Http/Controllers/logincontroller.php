@@ -18,4 +18,13 @@ class logincontroller extends Controller {
     {
         return view ('estadoanimo');
     }
+
+    public function calendario()
+    {
+        return view ('calendario.organizador');
+    }
+
+    
+
+
 }
