@@ -64,7 +64,7 @@ class logincontroller extends Controller {
         Session::forget('sesionname');
         Session::forget('sesionidu');
         Session::flush();
-        Session::flash('mensaje', 'Session Cerrada Correctamente');
+        Session::flash('mensaje', 'Sesión Cerrada Correctamente');
         return redirect()->route('login');
      }
 
