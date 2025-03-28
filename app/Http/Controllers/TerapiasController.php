@@ -38,5 +38,5 @@ class TerapiasController extends Controller
                 ]
             ]
         ]);
-    }¿Qué tipo de estudiante eres?
+    }
 }
