@@ -9,19 +9,19 @@
 @section('contenido')
 
     <div class="container">
-        <form action="#" method="POST">
-            @csrf
+        <form method="POST" action="{{ route('registrarEstadoAnimo') }}" enctype ="multipart/form-data">
+            {{ csrf_field() }}
+            <input type="hidden" name="fecha_registro" value="{{ date('Y-m-d') }}">
+
             <div class="subcont registro-emociones">
                 <h2>¿Cómo te sientes hoy?</h2>
                 <div class="mood-options">
-                    @foreach(["genial" => "😊", "bien" => "🙂", "neutral" => "😐", "decaido" => "😞"] as $estado => $icono)
-                        <label class="mood-card {{ $estado }}">
-                            <div class="icon-card-cont">
-                                <span>{{ $icono }}</span>
-                            </div>
-                            <h3>{{ ucfirst($estado) }}</h3>
-                            <p>{{ $estado === 'genial' ? 'Sentimiento positivo y enérgico' : ($estado === 'bien' ? 'En general me siento bien' : ($estado === 'neutral' ? 'Ni bien ni mal' : 'Sintiéndome mal el día de hoy')) }}</p>
-                            <input type="radio" name="estado_animo" value="{{ $estado }}" style="display:none">
+                    @foreach($tiposEstados as $tipo)
+                        <label class="mood-card selected">
+                            <input type="radio" name="id_tipo_estado_animo" value="{{ $tipo->id_tipo_estado_animo }}" required hidden>
+                            <div class="icon-card-cont">😊</div> 
+                            <h3>{{ $tipo->nombre_tipo }}</h3>
+                            <p>{{ $tipo->descripcion }}</p>
                         </label>
                     @endforeach
                 </div>
@@ -30,7 +30,7 @@
             <div class="subcont note-section">
                 <h3>Añade una nota sobre tu estado de ánimo</h3>
                 <span>¿Qué tienes en mente?</span>
-                <textarea name="nota_estado_animo" placeholder="Escribe aquí"></textarea>
+                <textarea name="nota" placeholder="Escribe aquí"></textarea>
             </div>
 
             <button type="submit" class="main-button">Guardar Estado de Ánimo</button>
@@ -85,5 +85,25 @@
         </div>
 
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const moodCards = document.querySelectorAll(".mood-card");
+
+            moodCards.forEach(card => {
+                card.addEventListener("click", function () {
+                    // Remueve la clase 'selected' de todas las cards
+                    moodCards.forEach(c => c.classList.remove("selected"));
+
+                    // Agrega la clase 'selected' a la card clickeada
+                    this.classList.add("selected");
+
+                    // Asigna el ID del estado de ánimo seleccionado a un input oculto
+                    document.getElementById("selectedMood").value = this.dataset.id;
+                });
+            });
+        });
+
+    </script>
 
 @stop

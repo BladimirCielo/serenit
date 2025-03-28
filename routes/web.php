@@ -9,7 +9,9 @@ Route::POST('validar',[logincontroller::class,'validar'])->name('validar');
 Route::get('cerrarsesion',[logincontroller::class,'cerrarsesion'])->name('cerrarsesion');
 
 Route::get('inicio',[logincontroller::class,'inicio'])->name('inicio');
+
 Route::get('mood',[moodcontroller::class,'mood'])->name('mood');
+Route::POST('registrarEstadoAnimo',[moodcontroller::class,'registrarEstadoAnimo'])->name('registrarEstadoAnimo');
 
 Route::get('organizador',[logincontroller::class,'organizador'])->name('organizador');
 Route::get('calendar',[logincontroller::class,'calendar'])->name('calendar');
