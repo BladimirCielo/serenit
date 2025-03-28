@@ -22,7 +22,7 @@ class logincontroller extends Controller {
         return view ('index');
         }
         else{
-            Session::flash('mensaje', "Es necesario iniciar sesion");
+            Session::flash('mensaje', "Es necesario iniciar sesión");
             return redirect()->route('login');   
         }
     }
@@ -68,19 +68,26 @@ class logincontroller extends Controller {
         return redirect()->route('login');
      }
 
-    public function mood()
-    {
-        return view ('estadoanimo');
-    }
-
     public function organizador()
     {
-        return view ('calendarios.organizador');
+        if(Session::get('sesionidu')) {
+            return view ('calendarios.organizador');
+        }
+        else {
+            Session::flash('mensaje', "Es necesario iniciar sesión");
+            return redirect()->route('login');   
+        }
     }
 
     public function calendar()
     {
-        return view ('calendario');
+        if(Session::get('sesionidu')) {
+            return view ('calendario');
+        }
+        else {
+            Session::flash('mensaje', "Es necesario iniciar sesión");
+            return redirect()->route('login');   
+        }
     }
 
 

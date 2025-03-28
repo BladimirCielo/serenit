@@ -5,6 +5,8 @@
 @section('estilos_adicionales')
     <link href="{{ asset('css/calendario.css') }}" rel="stylesheet">
     <style>
+        #organizador { background-color: rgb(223, 229, 255); }
+
         /* Estilos para el Modal */
         .modal {
             display: none; 
