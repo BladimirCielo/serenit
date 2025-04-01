@@ -12,6 +12,9 @@ Route::get('login',[logincontroller::class,'login'])->name('login');
 Route::POST('validar',[logincontroller::class,'validar'])->name('validar');
 Route::get('cerrarsesion',[logincontroller::class,'cerrarsesion'])->name('cerrarsesion');
 
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/estadoanimo', [DashboardController::class, 'estadoAnimo'])->name('estadoanimo');
+
 Route::get('inicio',[logincontroller::class,'inicio'])->name('inicio');
 Route::get('inicio', [logincontroller::class, 'inicio'])->name('inicio');
 Route::get('animo', [logincontroller::class, 'animo'])->name('animo');
@@ -26,12 +29,17 @@ Route::get('/recursos', [RecursosController::class, 'recursos'])->name('recursos
 
 Route::prefix('terapias')->group(function() {
     Route::get('/', [TerapiasController::class, 'terapia'])->name('terapias');
-    Route::get('/crear-cita', [TerapiasController::class, 'crearCita'])->name('citas.create');
-    Route::post('/guardar-cita', [TerapiasController::class, 'guardarCita'])->name('citas.store');
-});
-Route::get('/programar-cita/{terapeutaId}', [CitaController::class, 'showForm'])->name('programar-cita');
+        Route::get('/crear-cita', [TerapiasController::class, 'crearCita'])->name('citas.create');
+        Route::get('/programar-cita/{terapeutaId}', [TerapiasController::class, 'crearCita'])
+        ->name('programar-cita');
+        Route::post('/terapias/guardar-cita', [TerapiasController::class, 'guardarCita'])
+     ->name('citas.store')
+     ->middleware('auth');
+    });
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/emergencia', [EmergenciaController::class, 'index'])->name('emergencia');
+
+
 
 
 
