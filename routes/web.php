@@ -18,6 +18,11 @@ Route::get('animo', [logincontroller::class, 'animo'])->name('animo');
 
 Route::get('mood',[moodcontroller::class,'mood'])->name('mood');
 Route::POST('registrarEstadoAnimo',[moodcontroller::class,'registrarEstadoAnimo'])->name('registrarEstadoAnimo');
+Route::get('moodTrend',[moodcontroller::class,'moodTrend'])->name('moodTrend');
+Route::get('generarRecomendaciones',[moodcontroller::class,'generarRecomendaciones'])->name('generarRecomendaciones');
+Route::get('showcharts',[moodcontroller::class,'showcharts'])->name('showcharts');
+Route::get('getMoodReport',[moodcontroller::class,'getMoodReport'])->name('getMoodReport');
+
 
 Route::get('organizador',[logincontroller::class,'organizador'])->name('organizador');
 Route::get('calendar',[logincontroller::class,'calendar'])->name('calendar');

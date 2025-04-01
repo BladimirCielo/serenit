@@ -37,52 +37,23 @@
         </form>
 
         <div class="subcont analysis-section">
-            <h3>Tendencias semanales del ánimo</h3>
+            <!-- <h3>Tendencias semanales del ánimo</h3> -->
             <div class="analysis-card">
                 <div class="icon-card-cont">
                         <span>📈</span>
                     </div>
                 <div>
                     <h4>Análisis del ánimo</h4>
-                    <p>Tu estado de ánimo ha mejorado durante la última semana</p>
-                    <button class="main-button">Ver detalles</button>
-                    <button class="second-button">Compartir</button>
+                    <p>Obten un análisis de los registros de tu estado de ánimo semanal y mensual.</p>
+                    <a id="analisis" href="{{ route('moodTrend') }}"><button class="main-button">Ver detalles</button></a>
                 </div>
             </div>
         </div>
 
-        <div class="subcont recommendations">
-            <h3>Recomendaciones</h3>
-            <ul>
-                <li>
-                    <div class="icon-cont">
-                        <span>✍️</span>
-                    </div>
-                    <div class="info-cont">
-                        <span>Meditación matutina</span>
-                        <p>10 minutos de meditación guiada</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="icon-cont">
-                        <span>🚶</span>
-                    </div>
-                    <div class="info-cont">
-                        <span>Paseo al atardecer</span>
-                        <p>Expresa tus pensamientos por escrito</p>
-                    </div>        
-                </li>
-                <li>
-                    <div class="icon-cont">
-                        <span>✍️</span>
-                    </div>
-                    <div class="info-cont">
-                        <span>Ejercicio diario</span>
-                        <p>Expresa tus pensamientos por escrito</p>
-                    </div>        
-                </li>
-            </ul>
-        </div>
+        
+
+
+
 
     </div>
 
