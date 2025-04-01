@@ -108,6 +108,15 @@ h1 {
     width: 50%;
     z-index: 2;
 }
+.sign-in .button {
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+.sign-in .button:hover {
+    /* border: 1px solid #2f34a9; */
+    background-color: #2f34a9;
+}
 
 .container.active .sign-in{
     transform: translateX(100%);

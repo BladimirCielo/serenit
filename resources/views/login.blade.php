@@ -60,7 +60,7 @@
                 <p class="text-warning">{{ $errors->first('contrasenia') }}</p>
                 @endif
                 <a href="#">¿Olvidaste tu contraseña?</a>
-                <input type="submit" value="Ingresar" class="">
+                <input type="submit" value="Ingresar" class="button">
                 <div class="d-sm-flex mb-5 align-items-center">
                     @if (Session::has('mensaje'))    
                       <div class="alert alert-dismissible alert-warning">
