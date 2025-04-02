@@ -81,34 +81,22 @@
             <!-- Lista de autoayuda -->
             <div class="playlist-container" data-url="https://www.youtube.com/playlist?list=PLOqoLXu71sASfy2UPXLnY5Ilx1ne2bKxq">
                 <div class="playlist-icon-container">
-                    <i class="fas fa-hands-helping"></i>
+                    <img src="{{ asset('img/experts/Autoayuda.jpg') }}" alt="Autoayuda" class="playlist-image">
                 </div>
                 <div class="playlist-info">
                     <h3 class="playlist-title">Lista de Autoayuda</h3>
                     <p class="playlist-meta">5 vídeos • 60 minutos</p>
-                    <div class="playlist-progress">
-                        <div class="progress-container">
-                            <div class="progress-bar" style="width: 30%"></div>
-                        </div>
-                        <span class="progress-text">30% completado</span>
-                    </div>
                 </div>
             </div>
             
             <!-- Superación personal -->
             <div class="playlist-container" data-url="https://www.youtube.com/playlist?list=PLSU4LcAeYoJchSesJfbPgDAahOymGb1wG">
                 <div class="playlist-icon-container">
-                    <i class="fas fa-brain"></i>
+                    <img src="{{ asset('img/experts/superacion.jpg') }}" alt="Superación personal" class="playlist-image">
                 </div>
                 <div class="playlist-info">
                     <h3 class="playlist-title">Superación Personal</h3>
                     <p class="playlist-meta">8 vídeos • 90 minutos</p>
-                    <div class="playlist-progress">
-                        <div class="progress-container">
-                            <div class="progress-bar" style="width: 45%"></div>
-                        </div>
-                        <span class="progress-text">45% completado</span>
-                    </div>
                 </div>
             </div>
         </section>
@@ -119,9 +107,7 @@
             <!-- Guía de Autoayuda -->
             <div class="expert-card" data-url="https://consaludmental.org/centro-documentacion/guias-autoayuda-depresion-ansiedad/">
                 <div class="expert-photo-container">
-                    <div class="media-placeholder">
-                        <i class="fas fa-book"></i>
-                    </div>
+                    <img src="{{ asset('img/experts/guia.jpg') }}" alt="Guía de Autoayuda" class="expert-photo">
                 </div>
                 <div class="expert-info">
                     <h3>Guía de Autoayuda</h3>
@@ -132,9 +118,7 @@
             <!-- Artículo sobre Ansiedad -->
             <div class="expert-card" data-url="https://www.who.int/es/news-room/fact-sheets/detail/anxiety-disorders">
                 <div class="expert-photo-container">
-                    <div class="media-placeholder">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
+                    <img src="{{ asset('img/experts/ansiedad.jpg') }}" alt="Artículo sobre Ansiedad" class="expert-photo">
                 </div>
                 <div class="expert-info">
                     <h3>Artículo sobre Ansiedad</h3>
