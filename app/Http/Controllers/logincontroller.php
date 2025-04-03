@@ -90,28 +90,4 @@ class logincontroller extends Controller {
         Session::flash('mensaje',"El usuario $request->nombre se ha creado correctamente. Inicia sesión para ingresar.");
         return redirect()->route('login');
     }
-
-    public function organizador()
-    {
-        if(Session::get('sesionidu')) {
-            return view ('calendarios.organizador');
-        }
-        else {
-            Session::flash('mensaje', "Es necesario iniciar sesión");
-            return redirect()->route('login');   
-        }
-    }
-
-    public function calendar()
-    {
-        if(Session::get('sesionidu')) {
-            return view ('calendario');
-        }
-        else {
-            Session::flash('mensaje', "Es necesario iniciar sesión");
-            return redirect()->route('login');   
-        }
-    }
-
-
 }

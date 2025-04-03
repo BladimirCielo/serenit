@@ -40,7 +40,7 @@
             <div class="analysis-card">
                 <div class="icon-card-cont">
                         <span>📈</span>
-                    </div>
+                </div>
                 <div>
                     <h4>Análisis del ánimo</h4>
                     <p>Obten un análisis de los registros de tu estado de ánimo semanal y mensual.</p>

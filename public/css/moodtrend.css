@@ -86,9 +86,6 @@ h2, h3 {
     padding: 5px 5px 5px 0;
     cursor: pointer;
 }
-.recommendations li:hover {
-    /* background: var(--color-bk-card-hover); */
-}
 .recommendations .icon-cont {
     /* border: 1px solid green; */
     width: 50px;

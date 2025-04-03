@@ -6,6 +6,7 @@ use App\Http\Controllers\moodcontroller;
 use App\Http\Controllers\RecursosController;
 use App\Http\Controllers\TerapiasController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CalendarController;
 
 
 Route::get('login',[logincontroller::class,'login'])->name('login');
@@ -28,8 +29,13 @@ Route::get('showcharts',[moodcontroller::class,'showcharts'])->name('showcharts'
 Route::get('getMoodReport',[moodcontroller::class,'getMoodReport'])->name('getMoodReport');
 
 
-Route::get('organizador',[logincontroller::class,'organizador'])->name('organizador');
-Route::get('calendar',[logincontroller::class,'calendar'])->name('calendar');
+Route::get('organizador',[CalendarController::class,'organizador'])->name('organizador');
+Route::get('calendar', [CalendarController::class, 'calendar'])->name('calendar');
+Route::get('formevent', [CalendarController::class, 'formevent'])->name('formevent');
+Route::POST('createevent', [CalendarController::class, 'createevent'])->name('createevent');
+Route::get('details/{id}', [CalendarController::class, 'details'])->name('details');
+Route::get('index', [CalendarController::class, 'index'])->name('index');
+Route::get('index_month/{month}', [CalendarController::class, 'index_month'])->name('index_month');
 
 Route::get('/recursos', [RecursosController::class, 'recursos'])->name('recursos.serenit');
 
@@ -44,8 +50,3 @@ Route::prefix('terapias')->group(function() {
     });
 
 Route::get('/emergencia', [EmergenciaController::class, 'index'])->name('emergencia');
-
-
-
-
-

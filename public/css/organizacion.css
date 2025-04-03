@@ -1,3 +1,13 @@
+:root {
+    --color-bk-card: #f0f5ff;
+    --color-bk-card-hover: #dce0ff;
+
+    --color-txt-gray: #737887;
+
+    --color-bk-icon-card: #eaedff;
+    --color-bk-button: blue;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -10,7 +20,6 @@ body {
     height: 90vh;
     padding-top: 20px;
     margin: 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 header {
     display: flex;
@@ -64,4 +73,112 @@ header {
 }
 .task h4 {
     margin-bottom: 5px;
+}
+
+.container {
+    margin: auto;
+    padding: 20px;
+    max-width: 900px;
+}
+h2, h3 {
+    margin: 10px 0;
+    color: #0f1419;
+}
+.subcont {
+    margin: 30px 0;
+}
+.mood-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+.mood-card {
+    flex: 1;
+    padding: 15px;
+    height: 250px;
+    border-radius: 20px;
+    background: var(--color-bk-card);
+    text-align: center;
+    align-content: center;
+    justify-items: center;
+    color: var(--color-txt-gray);
+    transition: 0.3s;
+}
+.icon-card-cont {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center; 
+    background: var(--color-bk-icon-card);
+    border-radius: 50%;
+}
+
+button {
+    border: none;
+    margin: 10px 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.main-button {
+    background: var(--color-bk-button);
+    color: white;
+}
+
+.recommendations {
+    color: #333;
+}
+.recommendations ul {
+    list-style: none;
+    padding: 0;
+}
+.recommendations li {
+    display: flex;
+    align-items: center; /* Alinea los elementos verticalmente */
+    gap: 10px; /* Espaciado entre el icono y la información */
+    margin: 15px 15px;
+    padding: 5px 5px 5px 0;
+}
+.recommendations .icon-cont {
+    flex: -1;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center; /* Alinea todo el contenido verticalmente al centro */
+    align-items: center;
+    margin: 5px 0;
+    padding: 10px;
+    background: #eef2ff;
+    /* border-radius: 10px;     */
+}
+.recommendations li, 
+.recommendations .icon-cont {
+    border-radius: 10px;
+}
+.recommendations .info-cont{
+    flex: 1;
+    display: flex;
+    align-items: center; /* Alinea los elementos verticalmente */
+}
+.recommendations .info,
+.recommendations .actions {
+    width: 350px;
+}
+.recommendations .info {
+    flex: 1;
+}
+.recommendations .actions {
+    flex: 1;
+    display: flex;
+    justify-content: right;
+}
+.recommendations .info p {
+    color: var(--color-txt-gray);
+}
+.recommendations .iconos-nav {
+    min-width: 20px;
+    width: 20px;
 }
