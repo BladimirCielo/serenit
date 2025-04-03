@@ -19,24 +19,40 @@
     <div class="container" id="container">
          <!-- SECCIÓN: CREAR CUENTA -->
         <div class="form-container sign-up">
-            <form>
+            <form action ="{{route('crearusuario')}}" method= "POST">
+            {{ csrf_field() }}
                 <h1>Crear Cuenta</h1>
-                <input type="text" placeholder="Nombre">
-                <input type="text" placeholder="Apellidos">
-                <input type="email" placeholder="Correo electrónico">
-                <input type="password" placeholder="Contraseña">
-                <input type="password" placeholder="Confirmar contraseña">
-                <label for="Carrera">Carrera</label>
-                <select name="" id="">Carrea
-                    <option value="Biologia">Biotecnología</option>
-                    <option value="Biologia">Electrónica</option>
-                    <option value="Biologia">Financiera</option>
-                    <option value="Biologia">Industrial</option>
-                    <option value="Biologia">Mecatrónica</option>
-                    <option value="Biologia">Sistemas Automotrices</option>
-                    <option value="Biologia">Tecnologías de la Información</option>
+                <input type="text" name="nombre"  placeholder="Nombre" value="{{old('nombre')}}">
+                    @if($errors->first('nombre'))
+                        <p class="text-warning">{{$errors->first('nombre')}}</p>
+                    @endif
+                <input type="text" name="apellido_pat"  placeholder="Apellido Paterno" value="{{old('apellido_pat')}}">
+                    @if($errors->first('apellido_pat'))
+                        <p class="text-warning">{{$errors->first('apellido_pat')}}</p>
+                    @endif
+                <input type="text" name="apellido_mat"  placeholder="Apellido Materno" value="{{old('apellido_mat')}}">
+                    @if($errors->first('apellido_mat'))
+                        <p class="text-warning">{{$errors->first('apellido_mat')}}</p>
+                    @endif
+                <input type="email" name="email"  placeholder="Correo electrónico" value="{{old('email')}}">
+                    @if($errors->first('email'))
+                        <p class="text-warning">{{$errors->first('email')}}</p>
+                    @endif
+                <input type="password" name="contrasenia" placeholder="Contraseña" value="{{old('contrasenia')}}">
+                    @if($errors->first('contrasenia'))
+                        <p class="text-warning">{{$errors->first('contrasenia')}}</p>
+                    @endif
+                <input type="password" name="contrasenia_confirmation" placeholder="Confirmar contraseña">
+                    @if($errors->first('contrasenia'))
+                        <p class="text-warning">{{$errors->first('contrasenia')}}</p>
+                    @endif
+                <label for="id_carrera">Carrera</label>
+                <select name="id_carrera" id="">
+                    @foreach($carreras as $carrera)
+                        <option value="{{$carrera->id_carrera}}">{{$carrera->nombre_carrera}}</option>
+                    @endforeach
                 </select>
-                <button>Crear Cuenta</button>
+                <input type="submit" name="crearcuenta" value="CREAR CUENTA" class="button">
             </form>
         </div>
          <!-- SECCIÓN: INICIAR SESIÓN -->
@@ -44,23 +60,17 @@
             <form action =  "{{route('validar')}}" method= "POST">
             {{ csrf_field() }}
                 <h1>Iniciar Sesión</h1>
-                <!-- <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div> -->
                 <span>Ingresa tus datos para iniciar sesión</span>
-                <input type="email" name="email" placeholder="Correo electrónico">
-                @if($errors->first('email'))
-                    <p class="text-warning">{{ $errors->first('email') }}</p>
+                <input type="email" name="email_signin" placeholder="Correo electrónico">
+                @if($errors->first('email_signin'))
+                    <p class="text-warning">{{ $errors->first('email_signin') }}</p>
                 @endif
-                <input type="password" name="contrasenia" placeholder="Contraseña">
-                @if($errors->first('contrasenia'))
-                <p class="text-warning">{{ $errors->first('contrasenia') }}</p>
+                <input type="password" name="contrasenia_signin" placeholder="Contraseña">
+                @if($errors->first('contrasenia_signin'))
+                <p class="text-warning">{{ $errors->first('contrasenia_signin') }}</p>
                 @endif
-                <a href="#">¿Olvidaste tu contraseña?</a>
-                <input type="submit" value="Ingresar" class="">
+                <!-- <a href="#">¿Olvidaste tu contraseña?</a> -->
+                <input type="submit" value="INGRESAR" class="button">
                 <div class="d-sm-flex mb-5 align-items-center">
                     @if (Session::has('mensaje'))    
                       <div class="alert alert-dismissible alert-warning">
@@ -76,14 +86,14 @@
                 <div class="toggle-panel toggle-left">
                     <img src="{!! asset('archivos/logo-sidebar.png') !!}" id="logo-login" alt="logo-login"></img>
                     <p>Regístrate ingresando tus datos para poder acceder a la plataforma</p>
-                    <button class="hidden" id="login">¿Ya tienes una cuenta?</button>
+                    <button class="hidden btn-change" id="login">¿Ya tienes una cuenta?</button>
                   </div>
                   <div class="toggle-panel toggle-right">
                     <img src="{!! asset('archivos/logo-sidebar.png') !!}" id="logo-login" alt="logo-login"></img>
                     <p> Plataforma digital enfocada a promover la salud mental de los estudiantes
                         universitarios, facilitando recursos que contribuyan a su bienestar emocional y al equilibrio
                         entre lo académico y lo personal.</p>
-                    <button class="hidden" id="register">¿No tienes cuenta?</button>
+                    <button class="hidden btn-change" id="register">¿No tienes cuenta?</button>
                 </div>
             </div>
         </div>

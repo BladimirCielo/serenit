@@ -4,66 +4,72 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    text-align: left;
 }
 
 #calendario { background-color: rgb(223, 229, 255); }
 
-.calendar-container {
-    height: 90vh;
-    padding-top: 20px;
-    margin: 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-header {
+.header-main {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
+}
+.header-title {
+    flex: 1;
+    display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    a {
+        margin-left: 15px;
+    }
 }
-.btn {
-    background-color: #dfe4fd;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 5px;
+.btn-periodo {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.btn.active {
-    background-color: #4a6ee0;
+.btn-header {
+    background: #f0f0eb;
+    padding: 10px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: black;
+}
+.btn-header:hover {
+    background-color: #0000ff;
+    text-decoration: none;
     color: white;
 }
-.controls {
-    /* border: 1px solid blue; */
+.btn-header:active {
+    background:#2d65b4;
 }
-.calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-.calendar {
-    width: 100%;
-    border-collapse: collapse;
-}
-.calendar th, .calendar td {
-    padding: 10px;
+.header-col{
+    background: #E3E9E5;
+    color:#536170;
     text-align: center;
-    border: 1px solid #ddd;
+    /* font-size: 20px; */
+    font-weight: bold;
 }
-.upcoming-tasks {
-    margin-top: 20px;
+.header-calendar{
+    background: #EE192D;
+    color:white;
 }
-.task-list {
-    display: flex;
-    gap: 10px;
+.box-day .badge {
+    padding: 5px;
+    margin: 2px 0;
+    white-space: normal;  /* Permite que el texto haga saltos de línea */
+    word-wrap: break-word; /* Rompe las palabras largas si es necesario */
+    overflow-wrap: break-word; /* Asegura que el texto no se desborde */
+    max-width: 100%; /* Evita que crezca más allá de su contenedor */
+    display: inline-block; /* Permite que el ancho se ajuste según el contenido */
+    text-align: left;
+    font-weight: normal;
 }
-.task {
-    background: #eef2ff;
-    padding: 15px;
-    border-radius: 10px;
-    flex: 1;
-    text-align: center;
+.box-day{
+    border:1px solid #E3E9E5;
+    height:150px;
 }
-.task h4 {
-    margin-bottom: 5px;
+.box-dayoff{
+    border:1px solid #E3E9E5;
+    height:150px;
+    background-color: #e1e6eb;
 }

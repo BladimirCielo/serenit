@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\usuarios;
+use App\Models\carreras;
 
 use Session;
 
@@ -11,7 +12,11 @@ class logincontroller extends Controller {
     
     // Descripción: Función que muestra la vista del login. -->
     public function login() {
-        return view ('login');
+        $carreras = carreras::orderby('nombre_carrera', 'asc')
+            ->get();
+
+        return view ('login')
+            ->with('carreras', $carreras);
     }
     
     // Descripción: Función que muestra la página principal del sistema si se encuentra una sesión. -->
@@ -30,12 +35,12 @@ class logincontroller extends Controller {
     // Descripción: Función que valida las credenciales de acceso de sesiones. -->
     public function validar(Request $request) { 
         $validated = $request->validate([
-            'email' => 'required',
-            'contrasenia' => 'required'
+            'email_signin' => 'required',
+            'contrasenia_signin' => 'required'
         ]);
     
-        $email = $request->email;
-        $contrasenia = $request->contrasenia;
+        $email = $request->email_signin;
+        $contrasenia = $request->contrasenia_signin;
         
         // Buscar el usuario en la base de datos
         $usuario = usuarios::where('email', '=', $email)->first();
@@ -66,29 +71,23 @@ class logincontroller extends Controller {
         Session::flush();
         Session::flash('mensaje', 'Sesión cerrada correctamente');
         return redirect()->route('login');
-     }
-
-    public function organizador()
-    {
-        if(Session::get('sesionidu')) {
-            return view ('calendarios.organizador');
-        }
-        else {
-            Session::flash('mensaje', "Es necesario iniciar sesión");
-            return redirect()->route('login');   
-        }
     }
 
-    public function calendar()
-    {
-        if(Session::get('sesionidu')) {
-            return view ('calendario');
-        }
-        else {
-            Session::flash('mensaje', "Es necesario iniciar sesión");
-            return redirect()->route('login');   
-        }
+    // Descripción: Función que inserta un nuevo usuario en la bd para crear cuenta nueva. -->
+    public function crearusuario(Request $request) {
+        $validated = $request->validate([
+            'nombre'=>'required|regex:/^[A-Z][A-Z,a-z, ,á,í,ó,é,ú,ü,ñ,Ñ]+$/',
+            'apellido_pat'=>'required|regex:/^[A-Z][A-Z,a-z, ,á,í,ó,é,ú,ü,ñ,Ñ]+$/',
+            'apellido_mat'=>'required|regex:/^[A-Z][A-Z,a-z, ,á,í,ó,é,ú,ü,ñ,Ñ]+$/',
+            'email' => 'required|email',
+            'contrasenia' => 'required|min:8|confirmed|regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&\-_])[A-Za-z\d@$!%*?&\-_]{8,}$/'
+        ]);
+
+        $insertausuario = \DB::insert("INSERT INTO usuarios
+        (nombre,apellido_pat,apellido_mat,email,username,contrasenia,created_at,updated_at,id_carrera)
+        VALUE ('$request->nombre','$request->apellido_pat','$request->apellido_mat','$request->email','empty','$request->contrasenia',now(),now(),'$request->id_carrera')");
+
+        Session::flash('mensaje',"El usuario $request->nombre se ha creado correctamente. Inicia sesión para ingresar.");
+        return redirect()->route('login');
     }
-
-
 }

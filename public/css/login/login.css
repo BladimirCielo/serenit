@@ -52,6 +52,13 @@ body{
     margin: 15px 0 10px;
 }
 
+.container p.text-warning{
+    margin: 0px;
+    padding: 0 5px 5px 5px;
+    color: red;
+    font-size: 13px;
+}
+
 h1 {
     font-family: 'Arial', sans-serif;
 }
@@ -73,6 +80,10 @@ h1 {
 .container button.hidden{
     background-color: transparent;
     border-color: #fff;
+}
+.container button.btn-change:hover {
+    border: 1px solid #e4e4e4;
+    color: #e4e4e4;
 }
 
 .container form{
@@ -108,6 +119,15 @@ h1 {
     width: 50%;
     z-index: 2;
 }
+input.button {
+    background-color: #434cb3;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+input.button:hover {
+    background-color: rgb(42, 47, 190);
+}
 
 .container.active .sign-in{
     transform: translateX(100%);
@@ -118,6 +138,12 @@ h1 {
     width: 50%;
     opacity: 0;
     z-index: 1;
+}
+
+.form-container.sign-up {
+    position: relative;
+    overflow-y: auto;
+    max-height: 90vh; /* Ajusta según sea necesario */
 }
 
 .container.active .sign-up{
@@ -185,6 +211,14 @@ h1 {
 
 .container.active .toggle{
     transform: translateX(50%);
+}
+form select {
+    border: 1px solid #c6c6c6;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    color: rgb(117, 117, 117);
+    background-color: #f2f2f2;
 }
 
 .toggle-panel{

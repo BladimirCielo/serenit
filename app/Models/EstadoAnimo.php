@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class EstadoAnimo extends Model
 {
+    public function tipoEstadoAnimo()
+{
+    return $this->belongsTo(TipoEstadoAnimo::class, 'id_tipo_estado_animo', 'id_tipo_estado_animo');
+}
     use HasFactory;
     protected $table = 'estadoanimo';
     protected $primaryKey = 'id_estado'; 
