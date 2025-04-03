@@ -27,7 +27,6 @@ class TerapiasController extends Controller
             ];
         })->toArray();
         
-        // Mostrar todas las citas (sin filtro de usuario)
         $sesiones_previas = CitaTerapia::with('terapeuta')
             ->orderBy('fecha_cita', 'desc')
             ->limit(3)
@@ -87,7 +86,7 @@ class TerapiasController extends Controller
 
     try {
         $cita = new CitaTerapia();
-        $cita->id_usuario = auth()->id(); // Usando helper auth()
+        $cita->id_usuario = auth()->id();
         $cita->id_terapeuta = $validated['id_terapeuta'];
         $cita->fecha_cita = $validated['fecha_cita'];
         $cita->duracion = $validated['duracion'];
