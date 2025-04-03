@@ -27,15 +27,14 @@ Route::get('calendar',[logincontroller::class,'calendar'])->name('calendar');
 
 Route::get('/recursos', [RecursosController::class, 'recursos'])->name('recursos.serenit');
 
-Route::prefix('terapias')->group(function() {
-    Route::get('/', [TerapiasController::class, 'terapia'])->name('terapias');
+Route::middleware(['web'])->group(function () {
+    Route::prefix('terapias')->group(function() {
+        Route::get('/terapias', [TerapiasController::class, 'terapia'])->name('terapias');
         Route::get('/crear-cita', [TerapiasController::class, 'crearCita'])->name('citas.create');
-        Route::get('/programar-cita/{terapeutaId}', [TerapiasController::class, 'crearCita'])
-        ->name('programar-cita');
-        Route::post('/terapias/guardar-cita', [TerapiasController::class, 'guardarCita'])
-     ->name('citas.store')
-     ->middleware('auth');
+        Route::get('/terapias/programar/{terapeutaId?}', [TerapiasController::class, 'crearCita'])->name('programar-cita');
+        Route::post('/guardar-cita', [TerapiasController::class, 'guardarCita'])->name('citas.store');
     });
+});
 
 Route::get('/emergencia', [EmergenciaController::class, 'index'])->name('emergencia');
 
