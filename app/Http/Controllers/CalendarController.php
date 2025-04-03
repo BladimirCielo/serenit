@@ -39,8 +39,59 @@ class CalendarController extends Controller {
         return view("calendarios.eventodet",[
           "event" => $event
         ]);
-  
     }
+
+    public function eventedit($id_evento) {
+      
+      $query =  \DB::select("SELECT id_evento,id_usuario,titulo,descripcion,fecha
+        FROM evento
+        WHERE id_evento = $id_evento");
+
+      // return $query;
+      return view('calendarios.eventoedit')
+      ->with('query',$query[0]);
+    }
+
+    public function guardacambios(Request $request) {
+      $validated = $request->validate([
+          'titulo'     => 'required',
+          'descripcion' => 'required',
+          'fecha' => 'required'
+      ]);
+  
+      $query = Event::find($request->id_evento);
+  
+      // Si no encuentra el evento, devuelve error o redirecciona
+      if (!$query) {
+          return redirect()->route('index')->with('error', 'El evento no fue encontrado.');
+      }
+  
+      // Si encuentra el evento, procede a actualizarlo
+      $query->titulo = $request->titulo;
+      $query->descripcion = $request->descripcion;
+      $query->fecha = $request->fecha;
+      $query->save();
+  
+      Session::flash('mensaje', "El evento " . $request->titulo . "se ha editado correctamente");
+      return redirect()->route('index');
+  }
+
+  public function eliminarEvento($id_evento)
+  {
+      $evento = Event::find($id_evento);
+
+      if (!$evento) {
+          Session::flash('mensaje', "El evento con ID $id_evento no existe.");
+          return redirect()->route('index');
+      }
+
+      $evento->delete();
+
+      Session::flash('mensaje', "El evento ha sido eliminado correctamente.");
+      return redirect()->route('index');
+  }
+
+  
 
     public function organizador()
     {
@@ -71,6 +122,20 @@ class CalendarController extends Controller {
 
     // =================== CALENDARIO =====================
     public function index(){
+      $idUsuario = session('sesionidu');
+      $query = \DB::table('evento')
+        ->select(
+            'id_evento', 
+            'id_usuario', 
+            'titulo', 
+            'descripcion',
+            'fecha'
+        )
+        ->where('id_usuario', '=', $idUsuario)
+        ->where('fecha', '>=', \Carbon\Carbon::now()->subDays(7));
+
+      $registrostasks = $query->orderBy('fecha', 'DESC')
+        ->get();
 
         $month = date("Y-m");
         //
@@ -80,15 +145,29 @@ class CalendarController extends Controller {
         $mespanish = $this->spanish_month($mes);
         $mes = $data['month'];
  
-        return view("calendarios.calendario",[
+        return view("calendarios.calendario", compact('registrostasks'),[
           'data' => $data,
           'mes' => $mes,
           'mespanish' => $mespanish
         ]);
- 
     }
  
     public function index_month($month){
+
+      $idUsuario = session('sesionidu');
+      $query = \DB::table('evento')
+        ->select(
+            'id_evento', 
+            'id_usuario', 
+            'titulo', 
+            'descripcion',
+            'fecha'
+        )
+        ->where('id_usuario', '=', $idUsuario)
+        ->where('fecha', '>=', \Carbon\Carbon::now()->subDays(7));
+
+      $registrostasks = $query->orderBy('fecha', 'DESC')
+        ->get();
  
        $data = $this->calendar_month($month);
        $mes = $data['month'];
@@ -96,7 +175,7 @@ class CalendarController extends Controller {
        $mespanish = $this->spanish_month($mes);
        $mes = $data['month'];
  
-       return view("calendarios.calendario",[
+       return view("calendarios.calendario", compact('registrostasks'),[
          'data' => $data,
          'mes' => $mes,
          'mespanish' => $mespanish

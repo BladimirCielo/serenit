@@ -39,9 +39,6 @@ header {
     background-color: #4a6ee0;
     color: white;
 }
-.controls {
-    /* border: 1px solid blue; */
-}
 .calendar-header {
     display: flex;
     justify-content: space-between;
@@ -140,7 +137,12 @@ button {
     align-items: center; /* Alinea los elementos verticalmente */
     gap: 10px; /* Espaciado entre el icono y la información */
     margin: 15px 15px;
-    padding: 5px 5px 5px 0;
+    padding: 5px 5px 5px 5px;
+    transition: all 0.3s ease;
+}
+.recommendations li:hover {
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
 }
 .recommendations .icon-cont {
     flex: -1;

@@ -1,6 +1,6 @@
 @extends('sidebar')
 
-@section('title', 'Detalle del evento')
+@section('title', 'Editar evento')
 
 @section('estilos_adicionales')
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -133,21 +133,32 @@
 
 
       <div class="col-md-6">
-        <form action="{{ asset('createevent') }}" method="post">
-          <div class="fomr-group">
+        <form action="{{ asset('guardacambios') }}" method="POST" enctype ="multipart/form-data">
+        {{ csrf_field() }}
+          <input type= 'hidden' name = 'id_evento' value = "{{$query->id_evento}}"> 
+        <div class="fomr-group">
             <h4>Titulo</h4>
-            {{ $event->titulo }}
+            <input type="text" class="big" name="titulo" placeholder="Ingresa el titulo" maxlength="50" value="{{$query->titulo}}">
+            @if($errors->first('titulo'))
+                <p class="text-warning">{{$errors->first('titulo')}}</p>
+            @endif
           </div>
           <div class="fomr-group">
             <h4>Descripcion del Evento</h4>
-            {{ $event->descripcion }}
+            <input type="text" class="big" name="descripcion" placeholder="Ingresa la descripcion" maxlength="50" value="{{$query->descripcion}}">
+            @if($errors->first('descripcion'))
+                <p class="text-warning">{{$errors->first('descripcion')}}</p>
+            @endif
           </div>
           <div class="fomr-group">
             <h4>Fecha</h4>
-            {{ $event->fecha }}
+            <input type="date" class="big" name="fecha" placeholder="Ingresa la fecha" value="{{$query->fecha}}">
+            @if($errors->first('fecha'))
+                <p class="text-warning">{{$errors->first('fecha')}}</p>
+            @endif
           </div>
           <br>
-          <!-- <input type="submit" class="btn btn-info" value="Aceptar"> -->
+          <input type="submit" class="main-button" name="guardar" value="Guardar">
         </form>
       </div>
     </div> <!-- /container -->

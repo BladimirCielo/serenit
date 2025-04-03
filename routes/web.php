@@ -36,6 +36,9 @@ Route::POST('createevent', [CalendarController::class, 'createevent'])->name('cr
 Route::get('details/{id}', [CalendarController::class, 'details'])->name('details');
 Route::get('index', [CalendarController::class, 'index'])->name('index');
 Route::get('index_month/{month}', [CalendarController::class, 'index_month'])->name('index_month');
+Route::get('eventedit/{id_evento}',[CalendarController::class,'eventedit'])->name('eventedit');
+Route::POST('guardacambios',[CalendarController::class,'guardacambios'])->name('guardacambios');
+Route::get('eliminarEvento/{id_evento}',[CalendarController::class,'eliminarEvento'])->name('eliminarEvento');
 
 Route::get('/recursos', [RecursosController::class, 'recursos'])->name('recursos.serenit');
 
