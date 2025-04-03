@@ -9,5 +9,5 @@ class usuarios extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id_usuario'; 
-    protected $fillable=['id_usuario','nombre','apellido_pat','apellido_mat','email','username','contrasenia'];
+    protected $fillable=['id_usuario','nombre','apellido_pat','apellido_mat','email','username','contrasenia','created_at','updated_at','id_carrera'];
 }

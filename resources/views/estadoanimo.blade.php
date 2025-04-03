@@ -29,7 +29,6 @@
 
             <div class="subcont note-section">
                 <h3>Añade una nota sobre tu estado de ánimo</h3>
-                <span>¿Qué tienes en mente?</span>
                 <textarea name="nota" placeholder="Escribe aquí"></textarea>
             </div>
 

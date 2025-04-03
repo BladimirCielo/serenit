@@ -15,7 +15,14 @@
                     <div class="card-header bg-primary text-white text-center">
                         <h1>Análisis de tu estado de ánimo</h1>
                     </div>
-                    
+                    <div class="d-sm-flex mb-5 align-items-center">
+                        @if (Session::has('mensaje'))    
+                            <div class="alert alert-dismissible alert-warning">
+                                <h6 class="alert-heading">AVISO</h6>
+                                <p class="mb-0">{{ Session::get('mensaje') }}</p>
+                            </div>
+                        @endif
+                    </div>
                     <div class="card-body">
                         <div class="tabs">
                             <button class="tab-button active" data-tab="general">General</button>

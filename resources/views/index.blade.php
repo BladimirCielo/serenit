@@ -31,6 +31,15 @@
         <button class="tab" onclick="cambiarTab('trimestral')">Trimestral</button>
     </div>
 
+    <div class="message">
+    @if (Session::has('mensaje'))
+        <div class="alert alert-dismissible alert-secondary">
+            <button type="button" class="btn-close boton" data-bs-dismiss="alert"></button>
+            <strong>{{ Session::get('mensaje') }}</strong>
+        </div>
+    @endif
+    </div>
+
     <div class="stats" id="estadisticas">
         <div class="card">
             <h3>Promedio de ánimo</h3>

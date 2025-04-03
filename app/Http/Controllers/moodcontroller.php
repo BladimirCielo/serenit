@@ -45,7 +45,8 @@ class moodcontroller extends Controller {
         $estado->fecha_registro = $request->fecha_registro ?? now();
         $estado->save();
 
-        // return $estado;
+        Session::flash('mensaje',"Estado de ánimo registrado.");
+        return redirect()->route('moodTrend');
     }
 
     // Descripción: Función que muestra el análisis de estado de ánimo, sólo si hay una sesión iniciada -->

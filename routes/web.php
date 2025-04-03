@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('login',[logincontroller::class,'login'])->name('login');
 Route::POST('validar',[logincontroller::class,'validar'])->name('validar');
+Route::POST('crearusuario',[logincontroller::class,'crearusuario'])->name('crearusuario');
 Route::get('cerrarsesion',[logincontroller::class,'cerrarsesion'])->name('cerrarsesion');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
