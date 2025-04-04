@@ -16,7 +16,7 @@
 
 <body>
 
-    <div class="container" id="container">
+    <div class="container {{ ($errors->any() && old('crearcuenta')) ? 'active' : '' }}" id="container">
          <!-- SECCIÓN: CREAR CUENTA -->
         <div class="form-container sign-up">
             <form action ="{{route('crearusuario')}}" method= "POST">
@@ -112,6 +112,11 @@
       loginBtn.addEventListener('click', () => {
           container.classList.remove("active");
       });
+
+        // Si hubo errores al registrar, mantener la vista en 'signup'
+        @if ($errors->any() && old('crearcuenta'))
+            container.classList.add("active");
+        @endif
     </script>
 </body>
 
