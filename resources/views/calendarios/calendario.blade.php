@@ -131,32 +131,33 @@
         <div class="col header-col">Domingo</div>
       </div>
       <!-- inicio de semana -->
-      @foreach ($data['calendar'] as $weekdata)
-        <div class="row">
-          <!-- ciclo de dia por semana -->
-          @foreach  ($weekdata['datos'] as $dayweek)
+        @php
+            $idUsuario = session('sesionidu');  // Obtener el id del usuario activo
+        @endphp
 
-          @if  ($dayweek['mes']==$mes)
-            <div class="col box-day">
-              {{ $dayweek['dia']  }}
-              <!-- Carga y lista los eventos -->
-               <!-- evento -->
-              @foreach  ($dayweek['evento'] as $event) 
-                  <a class="badge badge-primary" href="{{ asset('details') }}/{{ $event->id_evento }}">
-                    {{ $event->titulo }}
-                  </a>
-              @endforeach
+        @foreach ($data['calendar'] as $weekdata)
+            <div class="row">
+                <!-- ciclo de día por semana -->
+                @foreach  ($weekdata['datos'] as $dayweek)
+                    @if  ($dayweek['mes'] == $mes)
+                        <div class="col box-day">
+                            {{ $dayweek['dia'] }}
+                            <!-- Carga y lista los eventos filtrados por el usuario -->
+                            @foreach  ($dayweek['evento'] as $event) 
+                                @if ($event->id_usuario == $idUsuario)  <!-- Filtra por el id del usuario -->
+                                    <a class="badge badge-primary" href="{{ asset('details') }}/{{ $event->id_evento }}">
+                                        {{ $event->titulo }}
+                                    </a>
+                                @endif
+                            @endforeach
+                        </div>
+                    @else
+                        <div class="col box-dayoff">
+                        </div>
+                    @endif
+                @endforeach
             </div>
-          @else
-          <div class="col box-dayoff">
-          </div>
-          @endif
-
-
-          @endforeach
-        </div>
-      @endforeach
-
+        @endforeach
     </div> <!-- /container -->
 
     

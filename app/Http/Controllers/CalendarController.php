@@ -33,12 +33,22 @@ class CalendarController extends Controller {
 
     public function details($id){
 
-        $event = Event::find($id);
-        
-        // return $event;
-        return view("calendarios.eventodet",[
+      $idUsuario = session('sesionidu');
+    
+      // Buscar el evento específico para el usuario que corresponde al id
+      $event = Event::where('id_usuario', $idUsuario) // Filtra por el id del usuario
+                    ->where('id_evento', $id) // Filtra por el id del evento específico
+                    ->first(); // Solo debe retornar un único evento
+  
+      // Si no existe el evento o el usuario no tiene acceso a él, puedes redirigir o manejar el error
+      if (!$event) {
+          return redirect()->route('eventos.index')->with('error', 'No tienes permiso para acceder a este evento.');
+      }
+  
+      // Retornar la vista con el evento
+      return view("calendarios.eventodet", [
           "event" => $event
-        ]);
+      ]);
     }
 
     public function eventedit($id_evento) {
@@ -136,6 +146,7 @@ class CalendarController extends Controller {
 
       $registrostasks = $query->orderBy('fecha', 'DESC')
         ->get();
+        $eventosUsuario = Event::where('id_usuario', $idUsuario)->get();
 
         $month = date("Y-m");
         //
@@ -145,7 +156,7 @@ class CalendarController extends Controller {
         $mespanish = $this->spanish_month($mes);
         $mes = $data['month'];
  
-        return view("calendarios.calendario", compact('registrostasks'),[
+        return view("calendarios.calendario", compact('registrostasks','eventosUsuario'),[
           'data' => $data,
           'mes' => $mes,
           'mespanish' => $mespanish
