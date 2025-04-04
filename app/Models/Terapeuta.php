@@ -11,11 +11,12 @@ class Terapeuta extends Model
 
     protected $table = 'terapeutas';
     protected $primaryKey = 'id_terapeuta';
-
     protected $fillable = [
-        'nombre_terapeuta',
+        'nombre_terapeuta', 
         'especialidad',
         'email_terapeuta',
-        'celular_terapeuta'
+        'celular_terapeuta',
+        'disponible',
+        'descripcion'
     ];
 }

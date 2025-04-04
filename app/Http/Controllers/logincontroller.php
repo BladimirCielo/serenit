@@ -87,7 +87,11 @@ class logincontroller extends Controller {
         (nombre,apellido_pat,apellido_mat,email,username,contrasenia,created_at,updated_at,id_carrera)
         VALUE ('$request->nombre','$request->apellido_pat','$request->apellido_mat','$request->email','empty','$request->contrasenia',now(),now(),'$request->id_carrera')");
 
-        Session::flash('mensaje',"El usuario $request->nombre se ha creado correctamente. Inicia sesión para ingresar.");
-        return redirect()->route('login');
+        $usuario = \DB::table('usuarios')->where('email', $request->email)->first();
+
+        Session::put('sesionname', $usuario->nombre . ' ' . $usuario->apellido_pat);
+        Session::put('sesionidu', $usuario->id_usuario);
+        return redirect()->route('inicio');
+
     }
 }

@@ -104,17 +104,13 @@
 
 <script>
     function cambiarTab(periodo) {
-        // Eliminar la clase active de todos los botones
         document.querySelectorAll('.tab').forEach(button => {
             button.classList.remove('active');
         });
 
-        // Agregar la clase active al botón que fue clickeado
         const botonSeleccionado = document.querySelector(`button[onclick="cambiarTab('${periodo}')"]`);
         botonSeleccionado.classList.add('active');
 
-        // Aquí puedes añadir la lógica para cambiar los datos según el periodo seleccionado
-        // Por ejemplo, si es 'semanal', 'mensual' o 'trimestral'
         let datos = {
             semanal: {
                 promedio: "7.8/10",
