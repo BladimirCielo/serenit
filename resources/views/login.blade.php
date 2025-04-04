@@ -43,9 +43,6 @@
                         <p class="text-warning">{{$errors->first('contrasenia')}}</p>
                     @endif
                 <input type="password" name="contrasenia_confirmation" placeholder="Confirmar contraseña">
-                    @if($errors->first('contrasenia'))
-                        <p class="text-warning">{{$errors->first('contrasenia')}}</p>
-                    @endif
                 <label for="id_carrera">Carrera</label>
                 <select name="id_carrera" id="">
                     @foreach($carreras as $carrera)

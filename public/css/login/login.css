@@ -138,6 +138,8 @@ input.button:hover {
     width: 50%;
     opacity: 0;
     z-index: 1;
+    overflow-y: auto;
+    overflow-x: auto;
 }
 
 .form-container.sign-up {

@@ -35,8 +35,13 @@ class logincontroller extends Controller {
     // Descripción: Función que valida las credenciales de acceso de sesiones. -->
     public function validar(Request $request) { 
         $validated = $request->validate([
-            'email_signin' => 'required',
+            'email_signin' => 'required|email',
             'contrasenia_signin' => 'required'
+        ], [
+            'email_signin.required' => 'El correo electrónico es obligatorio.',
+            'email_signin.email' => 'Por favor, ingresa un correo electrónico válido.',
+            
+            'contrasenia_signin.required' => 'La contraseña es obligatoria.'
         ]);
     
         $email = $request->email_signin;
@@ -76,11 +81,28 @@ class logincontroller extends Controller {
     // Descripción: Función que inserta un nuevo usuario en la bd para crear cuenta nueva. -->
     public function crearusuario(Request $request) {
         $validated = $request->validate([
-            'nombre'=>'required|regex:/^[A-Z][A-Z,a-z, ,á,í,ó,é,ú,ü,ñ,Ñ]+$/',
-            'apellido_pat'=>'required|regex:/^[A-Z][A-Z,a-z, ,á,í,ó,é,ú,ü,ñ,Ñ]+$/',
-            'apellido_mat'=>'required|regex:/^[A-Z][A-Z,a-z, ,á,í,ó,é,ú,ü,ñ,Ñ]+$/',
+            'nombre' => 'required|regex:/^[A-Z][A-Z,a-z, ,á,í,ó,é,ú,ü,ñ,Ñ]+$/',
+            'apellido_pat' => 'required|regex:/^[A-Z][A-Z,a-z, ,á,í,ó,é,ú,ü,ñ,Ñ]+$/',
+            'apellido_mat' => 'required|regex:/^[A-Z][A-Z,a-z, ,á,í,ó,é,ú,ü,ñ,Ñ]+$/',
             'email' => 'required|email',
             'contrasenia' => 'required|min:8|confirmed|regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&\-_])[A-Za-z\d@$!%*?&\-_]{8,}$/'
+        ], [
+            'nombre.required' => 'El nombre es obligatorio.',
+            'nombre.regex' => 'El nombre debe comenzar con una letra mayúscula y solo puede contener letras y espacios.',
+            
+            'apellido_pat.required' => 'El apellido paterno es obligatorio.',
+            'apellido_pat.regex' => 'El apellido paterno debe comenzar con una letra mayúscula y solo puede contener letras y espacios.',
+            
+            'apellido_mat.required' => 'El apellido materno es obligatorio.',
+            'apellido_mat.regex' => 'El apellido materno debe comenzar con una letra mayúscula y solo puede contener letras y espacios.',
+            
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'email.email' => 'Por favor, ingrese un correo electrónico válido.',
+            
+            'contrasenia.required' => 'La contraseña es obligatoria.',
+            'contrasenia.min' => 'La contraseña debe tener al menos 8 caracteres.',
+            'contrasenia.confirmed' => 'Las contraseñas no coinciden.',
+            'contrasenia.regex' => 'La contraseña debe tener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial ( @$!%*?&-_ ).'
         ]);
 
         $insertausuario = \DB::insert("INSERT INTO usuarios
