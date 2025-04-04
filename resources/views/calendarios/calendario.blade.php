@@ -3,11 +3,27 @@
 @section('title', 'Calendario')
 
 @section('estilos_adicionales')
-    <link href="{{ asset('css/calendario.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="{{ asset('css/organizacion.css') }}" rel="stylesheet">
-    <style>
-        #organizador { background-color: rgb(223, 229, 255); }
+<link href="{{ asset('css/calendario.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="{{ asset('css/organizacion.css') }}" rel="stylesheet">
+<style>
+    #organizador { background-color: rgb(223, 229, 255); }
+    .text-decoration-line-through {
+        text-decoration: line-through;
+    }
+    .text-muted {
+        text-decoration: line-through;
+        color: #e1e6eb !important;
+    }
+    ..text-decoration-line-through:hover,
+    .text-muted:hover {
+        text-decoration: line-through;
+    }
+    #openEventModal:hover {
+        background: #0000ff;
+        color: white;
+        cursor:pointer;
+    }
         /* Estilos para el Modal */
         .modal {
             display: none; 
@@ -121,16 +137,16 @@
 
         <hr>
 
-      <div class="row">
-        <div class="col header-col">Lunes</div>
-        <div class="col header-col">Martes</div>
-        <div class="col header-col">Miercoles</div>
-        <div class="col header-col">Jueves</div>
-        <div class="col header-col">Viernes</div>
-        <div class="col header-col">Sabado</div>
-        <div class="col header-col">Domingo</div>
-      </div>
-      <!-- inicio de semana -->
+        <div class="row">
+            <div class="col header-col">Lunes</div>
+            <div class="col header-col">Martes</div>
+            <div class="col header-col">Miercoles</div>
+            <div class="col header-col">Jueves</div>
+            <div class="col header-col">Viernes</div>
+            <div class="col header-col">Sabado</div>
+            <div class="col header-col">Domingo</div>
+        </div>
+        <!-- inicio de semana -->
         @php
             $idUsuario = session('sesionidu');  // Obtener el id del usuario activo
         @endphp
@@ -144,8 +160,11 @@
                             {{ $dayweek['dia'] }}
                             <!-- Carga y lista los eventos filtrados por el usuario -->
                             @foreach  ($dayweek['evento'] as $event) 
-                                @if ($event->id_usuario == $idUsuario)  <!-- Filtra por el id del usuario -->
-                                    <a class="badge badge-primary" href="{{ asset('details') }}/{{ $event->id_evento }}">
+                                @if ($event->id_usuario == $idUsuario)
+                                    <a 
+                                        class="badge {{ $event->pasado ? 'badge-secondary text-decoration:line-through text-muted' : 'badge-primary' }}" 
+                                        href="{{ asset('details') }}/{{ $event->id_evento }}"
+                                    >
                                         {{ $event->titulo }}
                                     </a>
                                 @endif
@@ -158,6 +177,7 @@
                 @endforeach
             </div>
         @endforeach
+
     </div> <!-- /container -->
 
     
@@ -216,15 +236,15 @@
               <h3>Agregar evento</h3>
               <div class="form-group">
                   <label>Titulo</label>
-                  <input type="text" class="form-control" name="titulo">
+                  <input type="text" class="form-control" name="titulo" required>
               </div>
               <div class="form-group">
                   <label>Descripcion del Evento</label>
-                  <input type="text" class="form-control" name="descripcion">
+                  <input type="text" class="form-control" name="descripcion" required>
               </div>
               <div class="form-group">
                   <label>Fecha</label>
-                  <input type="date" class="form-control" name="fecha">
+                  <input type="date" class="form-control" name="fecha" min="{{ date('Y-m-d') }}" required>
               </div>
               <br>
               <input type="submit" class="btn btn-info" value="Guardar">

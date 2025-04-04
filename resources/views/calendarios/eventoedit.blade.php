@@ -152,7 +152,7 @@
           </div>
           <div class="fomr-group">
             <h4>Fecha</h4>
-            <input type="date" class="big" name="fecha" placeholder="Ingresa la fecha" value="{{$query->fecha}}">
+            <input type="date" class="big" name="fecha" placeholder="Ingresa la fecha" value="{{$query->fecha}}" min="{{ date('Y-m-d') }}" required>
             @if($errors->first('fecha'))
                 <p class="text-warning">{{$errors->first('fecha')}}</p>
             @endif
