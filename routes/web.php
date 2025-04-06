@@ -18,7 +18,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/estadoanimo', [DashboardController::class, 'estadoAnimo'])->name('estadoanimo');
 
 Route::get('inicio',[logincontroller::class,'inicio'])->name('inicio');
-Route::get('inicio', [logincontroller::class, 'inicio'])->name('inicio');
+Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('animo', [logincontroller::class, 'animo'])->name('animo');
 
 Route::get('mood',[moodcontroller::class,'mood'])->name('mood');

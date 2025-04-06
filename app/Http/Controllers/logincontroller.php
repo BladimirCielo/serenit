@@ -56,7 +56,7 @@ class logincontroller extends Controller {
                 // La contraseña es correcta
                 Session::put('sesionname', $usuario->nombre . ' ' . $usuario->apellido_pat);
                 Session::put('sesionidu', $usuario->id_usuario);
-                return redirect()->route('inicio');
+                return redirect()->route('dashboard');
             } else {
                 // La contraseña no coincide
                 Session::flash('mensaje', "Contraseña incorrecta.");
@@ -113,7 +113,7 @@ class logincontroller extends Controller {
 
         Session::put('sesionname', $usuario->nombre . ' ' . $usuario->apellido_pat);
         Session::put('sesionidu', $usuario->id_usuario);
-        return redirect()->route('inicio');
+        return redirect()->route('dashboard');
 
     }
 }

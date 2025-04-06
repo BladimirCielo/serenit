@@ -122,7 +122,9 @@ class CalendarController extends Controller {
         $registrostasks = $query->orderBy('fecha', 'DESC')
           ->get();
 
-        return view ('calendarios.organizador', compact('registrostasks'));
+        \View::share('registrostasks', $registrostasks);
+        dd($registrostasks);
+        // return view ('calendarios.organizador', compact('registrostasks'));
       }
       else {
           Session::flash('mensaje', "Es necesario iniciar sesión");
