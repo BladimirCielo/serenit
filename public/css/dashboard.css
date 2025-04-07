@@ -219,3 +219,12 @@ th {
     position: relative; /* Asegura que no haya overlays */
     z-index: 10;
 }
+.chart-container {
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.card .chart-container {
+    padding: 10px;
+}
