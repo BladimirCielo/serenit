@@ -66,6 +66,7 @@ class DashboardController extends Controller
     
             \View::share('registrostasks', $registrostasks);
             \View::share('generalchart', $generalchart);
+            
             \View::share('sesiones_previas', $sesiones_previas);
             // dd($registrostasks);
             // return view ('calendarios.organizador', compact('registrostasks'));
