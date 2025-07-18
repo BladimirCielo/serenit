@@ -6,6 +6,7 @@
 <link href="{{ asset('css/terapia.css') }}" rel="stylesheet">
 <style>
     /* Estilos para la sección de sesiones previas */
+    #terapia { background-color: rgb(223, 229, 255); }
     .sesiones-previas-section {
         margin-top: 40px;
         padding-top: 30px;

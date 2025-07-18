@@ -50,7 +50,7 @@
                     @endforeach
                 </select>
                 <input type="submit" name="crearcuenta" value="CREAR CUENTA" class="button">
-            </form>
+            </form> q
         </div>
          <!-- SECCIÓN: INICIAR SESIÓN -->
         <div class="form-container sign-in">
